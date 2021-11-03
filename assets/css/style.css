@@ -63,11 +63,11 @@ a.menu-item:hover {
     background: #5F7470; /* Xanadu */
 }
 
-
 /* score-board */
 
 #score-board {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 #player, #computer, .label, .score {
@@ -85,6 +85,42 @@ a.menu-item:hover {
 .score {
     border: 2px solid #5F7470; /* Xanadu */
     padding: 0 15px;
+}
+
+/* game-board */
+
+#game-board {
+    height: 220px;
+}
+
+#game-board table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#game-board td {
+    border: 1px solid #5F7470; /* Xanadu */
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+}
+
+/* only keep inside borders */
+#game-board tr:first-child td {
+    border-top: 0;
+}
+
+#game-board tr:last-child td {
+    border-bottom: 0;
+}
+
+#game-board tr td:first-child {
+    border-left: 0;
+}
+
+#game-board tr td:last-child {
+    border-right: 0;
 }
 
 /* toggle switch */
