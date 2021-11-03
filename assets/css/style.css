@@ -123,6 +123,38 @@ a.menu-item:hover {
     border-right: 0;
 }
 
+/* settings */
+
+#settings {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#turn-select, #game-restart, #turn-label, #turn-switch {
+    display: inline-block;
+}
+
+#turn-select {
+    margin-right: 10px;
+}
+
+#game-restart {
+    margin-left: 20px;
+    border: 2px solid #5F7470; /* Xanadu */
+    font-weight: bold;
+    padding: 4px 15px;
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-size: 14px;
+    color: #889696; /* Xanadu */
+    background: #EBEDE9; /* Platinum */
+}
+
+#game-restart:hover {
+    color: #EBEDE9; /* Platinum */
+    background: #5F7470; /* Xanadu */
+
+}
+
 /* toggle switch */
 /* https://www.w3schools.com/howto/howto_css_switch.asp */
 
