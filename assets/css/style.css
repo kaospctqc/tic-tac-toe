@@ -12,7 +12,7 @@ body {
     font-family: 'Zen Kurenaido', sans-serif;
 }
 
-/* header title and main navigation */
+/* header title */
 
 header {
     margin: 20px;
@@ -24,6 +24,8 @@ header {
     font-family: 'Roboto Mono', monospace;
     font-weight: 400;
 }
+
+/* main navigation */
 
 #main-menu > ul {
     list-style: none;
@@ -59,6 +61,30 @@ a.live {
 a.menu-item:hover {
     color: #EBEDE9; /* Platinum */
     background: #5F7470; /* Xanadu */
+}
+
+
+/* score-board */
+
+#score-board {
+    text-align: center;
+}
+
+#player, #computer, .label, .score {
+    display: inline-block;
+}
+
+#player {
+    margin-right: 25px;
+}
+
+#computer {
+    margin-left: 25px;
+}
+
+.score {
+    border: 2px solid #5F7470; /* Xanadu */
+    padding: 0 15px;
 }
 
 /* toggle switch */
