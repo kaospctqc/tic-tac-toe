@@ -28,6 +28,4 @@ ToDo: add website screenshot thingy from [am i responsive](http://ami.responsive
 
 ## Deployment
 
-## 
-
 ## Credits
