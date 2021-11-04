@@ -33,16 +33,20 @@ header {
 
 #main-menu > ul > li {
     display: inline-block;
+    border: 2px solid #5F7470; /* Xanadu */
+    border-right: 0;
+}
+
+#main-menu > ul > li:last-child {
+    border: 2px solid #5F7470; /* Xanadu */
 }
 
 #main-menu > ul > li > a {
-    border: 2px solid #5F7470; /* Xanadu */
     font-weight: bold;
 }
 
 .menu-item {
     padding: 4px 15px;
-    margin: 0 -3px;
     display: inline-block;
 }
 
