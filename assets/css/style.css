@@ -88,7 +88,12 @@ a.menu-item:hover {
 
 .score {
     border: 2px solid #5F7470; /* Xanadu */
-    padding: 0 15px;
+    padding: 0 10px;
+}
+
+.label {
+    font-size: 20px;
+    font-weight: 800;
 }
 
 /* game-board */
@@ -143,10 +148,10 @@ a.menu-item:hover {
 }
 
 #game-restart {
-    margin-left: 20px;
+    margin-left: 15px;
     border: 2px solid #5F7470; /* Xanadu */
     font-weight: bold;
-    padding: 4px 15px;
+    padding: 6px 10px;
     font-family: 'Zen Kurenaido', sans-serif;
     font-size: 14px;
     color: #889696; /* Xanadu */
@@ -156,7 +161,10 @@ a.menu-item:hover {
 #game-restart:hover {
     color: #EBEDE9; /* Platinum */
     background: #5F7470; /* Xanadu */
+}
 
+#turn-switch {
+    /* top: -2px; */
 }
 
 /* toggle switch */
@@ -181,10 +189,10 @@ height: 0;
 .slider {
 position: absolute;
 cursor: pointer;
-top: 0;
+top: -4px;
 left: 0;
 right: 0;
-bottom: 0;
+bottom: 4px;
 background-color: #ccc;
 -webkit-transition: .4s;
 transition: .4s;
