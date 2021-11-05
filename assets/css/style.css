@@ -68,11 +68,14 @@ a.menu-item:hover {
     background: #5F7470; /* Xanadu */
 }
 
-/* score-board */
+/* main section */
 
-#score-board {
+section {
     text-align: center;
+    height: 330px;
 }
+
+/* score-board */
 
 #player, #computer, .label, .score {
     display: inline-block;
@@ -112,7 +115,6 @@ a.menu-item:hover {
 
 #game-board td {
     border: 2px solid #5F7470; /* Xanadu */
-    text-align: center;
 }
 
 /* only keep inside borders */
@@ -133,11 +135,6 @@ a.menu-item:hover {
 }
 
 /* settings */
-
-#settings {
-    text-align: center;
-    margin-bottom: 10px;
-}
 
 #turn-select, #game-restart, #turn-label, #turn-switch {
     display: inline-block;
@@ -231,7 +228,8 @@ border-radius: 50%;
 
 /* footer */
 
-footer > ul {
+footer {
+    margin-top: 10px;
     text-align: center;
 }
 
