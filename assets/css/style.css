@@ -227,15 +227,27 @@ border-radius: 50%;
 
 /* footer */
 
-footer > ul > li {
-    display: inline-block;
-}
-
 footer > ul {
     text-align: center;
+}
+
+footer > ul > li {
+    display: inline-block;
+    border-right: 1px solid #5F7470;
+}
+
+footer > ul > li:last-child {
+    border-right: 0; 
 }
 
 footer > ul > li > a {
     color: #889696; /* Spanish Gray */
     text-decoration: none;
+    display: block;
+    padding: 0 6px;
+}
+
+footer > ul > li > a:hover {
+    color: #EBEDE9; /* Platinum */
+    background: #5F7470; /* Xanadu */
 }
