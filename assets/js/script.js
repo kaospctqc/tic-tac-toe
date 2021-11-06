@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let gameState = getGameState();
 
     let settingsState = getSettingsState();
+    // let settingsState = false;
 
     let score = createScoreBoard(scoreState);
     let game = createGameBoard(gameState);
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ${settings}
     `;
 
+    runGame(settingsState);
 }
 
 /**
@@ -185,4 +187,73 @@ function getSettingsState() {
     }
 
     return settingsState;
+}
+
+/**
+ * Game logic
+ */
+function runGame(settingsState) {
+
+    let rows = document.getElementsByTagName('tr');
+    let currentCells = [
+        ['empty', 'empty', 'empty'],
+        ['empty', 'empty', 'empty'],
+        ['empty', 'empty', 'empty'],
+    ];
+    let stepCount = 0;
+
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            rows[i].children[j].addEventListener('click', function() {
+                let m = Math.floor(Math.random() * 3);
+                let n = Math.floor(Math.random() * 3);
+
+                if (currentCells[i][j] === "empty") {
+                    
+                    rows[i].children[j].textContent = settingsState ? "X":"O"; 
+                    currentCells[i][j] = settingsState ? "X":"O";
+                    if (checkWinner(currentCells) === "X" || checkWinner(currentCells) === "O") {
+                        console.log(checkWinner(currentCells));
+                    }
+
+                    while (currentCells[m][n] !== "empty" && stepCount < 4) {
+                        m = Math.floor(Math.random() * 3);
+                        n = Math.floor(Math.random() * 3);
+                    }
+
+                    if (currentCells[m][n] === "empty") {
+                        rows[m].children[n].textContent = settingsState ? "O":"X"; 
+                        currentCells[m][n] = settingsState ? "O":"X";
+                        if (checkWinner(currentCells) === "X" || checkWinner(currentCells) === "O") {
+                            console.log(checkWinner(currentCells));
+                        }
+                    }
+
+                    stepCount++;
+                }
+            });
+        }
+    }
+}
+
+function checkWinner (currentCells) {
+    let winnerDiagOne = (currentCells[0][0] === currentCells[1][1] && currentCells[0][0] === currentCells[2][2]);
+    if (winnerDiagOne) {
+        return currentCells[0][0];
+    }
+
+    let winnerDiagTwo = (currentCells[0][2] === currentCells[1][1] && currentCells[0][0] === currentCells[2][1]);
+    if (winnerDiagTwo) {
+        return currentCells[0][2];
+    }
+
+    for (let i = 0; i < 3; i++) {
+        let winnerLine = (currentCells[0][i] === currentCells[1][i] && currentCells[0][i] === currentCells[2][i]);
+        let winnerRow = (currentCells[i][0] === currentCells[i][1] && currentCells[i][0] === currentCells[i][2]);
+        if (winnerLine) {
+            return currentCells[0][i];
+        } else if (winnerRow) {
+            return currentCells[i][0];
+        }
+    }
 }
