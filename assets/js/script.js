@@ -47,7 +47,17 @@ document.addEventListener('DOMContentLoaded', function() {
         ${settings}
     `;
 
-    runGame(settingsState);
+    // let cells = document.getElementsByTagName('td');
+    
+    // for (let cell of cells) {
+    //     cell.addEventListener('click', function() {
+    //         runGame(settingsState);
+    //     });
+    // }
+
+
+    runGame(scoreState, gameState, settingsState);
+    // humanTurn(scoreState, gameState, settingsState);
 }
 
 /**
@@ -97,7 +107,7 @@ function createGameBoard(gameState) {
         gameBoard += `           <tr>`;
         for (var j = 0; j < 3; j++) {
             gameBoard += `
-                    <td>${gameState[i][j].toUpperCase()}</td>`;
+                    <td data-line=${i} data-row="${j}">${gameState[i][j].toUpperCase()}</td>`;
         }
         gameBoard += `
                 </tr>
@@ -159,7 +169,11 @@ function getScoreState() {
  * Find the current game progress, return array of array
  */
 function getGameState() {
-    let gameState = [['', '', ''], ['', '', ''], ['', '', '']];
+    let gameState = [
+        ['', '', ''], 
+        ['', '', ''], 
+        ['', '', '']
+    ];
     
     if (document.getElementById('game-board')) {
         let rows = document.getElementsByTagName('tr');
@@ -192,68 +206,94 @@ function getSettingsState() {
 /**
  * Game logic
  */
-function runGame(settingsState) {
+function runGame(scoreState, gameState, settingsState) {
+    let cells = document.getElementsByTagName('td');
 
-    let rows = document.getElementsByTagName('tr');
-    let currentCells = [
-        ['empty', 'empty', 'empty'],
-        ['empty', 'empty', 'empty'],
-        ['empty', 'empty', 'empty'],
-    ];
-    let stepCount = 0;
+    for (let cell of cells) {
+        // cell.addEventListener('click', humanTurn);
+        cell.addEventListener('click', function(event) {
+            if (settingsState) {
+                humanTurn(event, settingsState); 
+            } else {
+                computerTurn(settingsState);
+            }
+        });
+    }
+}
 
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            rows[i].children[j].addEventListener('click', function() {
-                let m = Math.floor(Math.random() * 3);
-                let n = Math.floor(Math.random() * 3);
+function humanTurn(event, settingsState) {
+    // console.log(this.parentElement.rowIndex, this.cellIndex, this.textContent);
+    if (!event.target.textContent) {
+        event.target.textContent = settingsState ? "X":"O";
+    } 
+    // console.log(event.target);
+    endTurn('human');
+}
 
-                if (currentCells[i][j] === "empty") {
-                    
-                    rows[i].children[j].textContent = settingsState ? "X":"O"; 
-                    currentCells[i][j] = settingsState ? "X":"O";
-                    if (checkWinner(currentCells) === "X" || checkWinner(currentCells) === "O") {
-                        console.log(checkWinner(currentCells));
-                    }
+function computerTurn(settingsState) {
+    console.log(settingsState);
+    let m = Math.floor(Math.random() * 3);
+    let n = Math.floor(Math.random() * 3);
+    let currentGameState = getGameState();
+    let currentSettingsState = getSettingsState();
+    if (currentGameState) {
+        let rows = document.getElementsByTagName('tr');
+        rows[m].children[n].textContent = currentSettingsState ? "O":"X";;
+    }
 
-                    while (currentCells[m][n] !== "empty" && stepCount < 4) {
-                        m = Math.floor(Math.random() * 3);
-                        n = Math.floor(Math.random() * 3);
-                    }
+    console.log(getGameState());
+    
+    endTurn('computer');
+}
 
-                    if (currentCells[m][n] === "empty") {
-                        rows[m].children[n].textContent = settingsState ? "O":"X"; 
-                        currentCells[m][n] = settingsState ? "O":"X";
-                        if (checkWinner(currentCells) === "X" || checkWinner(currentCells) === "O") {
-                            console.log(checkWinner(currentCells));
-                        }
-                    }
+function endTurn(player) {
+    let currentState = getGameState();
+    let winner = checkWinner(currentState);
+    let nextPlayer = (player === "human") ? "computer" : "human";
 
-                    stepCount++;
-                }
-            });
+    if (winner) {
+        doWin(player);
+    } else {
+        if (nextPlayer === "human") {
+            
+            // humanTurn();
+
+        } else if (nextPlayer === "computer") {
+            computerTurn();
         }
     }
 }
 
-function checkWinner (currentCells) {
-    let winnerDiagOne = (currentCells[0][0] === currentCells[1][1] && currentCells[0][0] === currentCells[2][2]);
-    if (winnerDiagOne) {
-        return currentCells[0][0];
-    }
-
-    let winnerDiagTwo = (currentCells[0][2] === currentCells[1][1] && currentCells[0][0] === currentCells[2][1]);
-    if (winnerDiagTwo) {
-        return currentCells[0][2];
+function checkWinner(currentState) {
+    if (
+        currentState[0][0] === currentState[1][1] && 
+        currentState[1][1] === currentState[2][2] &&
+        currentState[1][1] !== '') {
+        return 'winner';
+    } else if (
+        currentState[2][0] === currentState[1][1] && 
+        currentState[1][1] === currentState[0][2] &&
+        currentState[1][1] !== '') {
+        return 'winner';
     }
 
     for (let i = 0; i < 3; i++) {
-        let winnerLine = (currentCells[0][i] === currentCells[1][i] && currentCells[0][i] === currentCells[2][i]);
-        let winnerRow = (currentCells[i][0] === currentCells[i][1] && currentCells[i][0] === currentCells[i][2]);
-        if (winnerLine) {
-            return currentCells[0][i];
-        } else if (winnerRow) {
-            return currentCells[i][0];
+        if (
+            currentState[0][i] === currentState[1][i] && 
+            currentState[0][i] === currentState[2][i] &&
+            currentState[0][i] !== '') {
+            return 'winner';
+        } else if (
+            currentState[i][0] === currentState[i][1] && 
+            currentState[i][0] === currentState[i][2] &&
+            currentState[i][0] !== '') {
+            return 'winner';
         }
     }
+
+    return '';
+}
+
+function doWin(player) {
+    console.log(player, 'won !!');
 }
