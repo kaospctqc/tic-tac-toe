@@ -30,15 +30,22 @@ document.addEventListener('DOMContentLoaded', function() {
  */
  function displayPlay() {
 
+    let scoreState = {
+        player: 2,
+        computer: 1
+    };
+
     let gameState = [
         ['x', 'o', 'o'],
         ['o', 'x', 'o'],
         ['o', 'o', 'x'],
     ];
     
-    let score = createScoreBoard();
+    let settingsState = true;
+
+    let score = createScoreBoard(scoreState);
     let game = createGameBoard(gameState);
-    let settings = createSettings();
+    let settings = createSettings(settingsState);
 
     document.getElementsByTagName('section')[0].innerHTML = `
         ${score}
@@ -68,16 +75,16 @@ function displayFeedback() {
 /** 
  * Creates the score html
 */
-function createScoreBoard() {
+function createScoreBoard(scoreState) {
     return  `
     <div id="score-board">
         <div id="player">
             <div id="player-label" class="label">Player</div>
-            <span id="player-score" class="score">0</span>
+            <span id="player-score" class="score">${scoreState.player}</span>
         </div>
         <div id="computer">
             <div id="computer-label" class="label">Computer</div>
-            <span id="computer-score" class="score">0</span>
+            <span id="computer-score" class="score">${scoreState.computer}</span>
         </div>
     </div>
     `;
@@ -114,14 +121,15 @@ function createGameBoard(gameState) {
 /** 
  * Creates the settings html
 */
-function createSettings () {
+function createSettings (settingsState) {
+    let checked = settingsState ? 'checked': '';
     return `
     <div id="settings">
         <div id="turn-select">
             <div id="turn-label" class="label">Go first ?</div>
             <div id="turn-switch">
                 <label class="switch">
-                    <input type="checkbox" checked>
+                    <input type="checkbox" ${checked}>
                     <span class="slider round"></span>
                 </label>
             </div>
