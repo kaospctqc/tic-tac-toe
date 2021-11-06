@@ -30,10 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
  function displayPlay() {
 
-    let scoreState = {
-        player: 2,
-        computer: 1
-    };
+    let scoreState = getScoreState();
 
     let gameState = [
         ['x', 'o', 'o'],
@@ -52,8 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
         ${game}
         ${settings}
     `;
-
-    console.log(createGameBoard(gameState));
 };
 
 /**
@@ -142,21 +137,27 @@ function createSettings (settingsState) {
 // functions used to grab the current state from the DOM
 
 /**
- * Find the current score
+ * Find the current score, return object
  */
 function getScoreState() {
-
+    let playerScore = parseInt(document.getElementById('player-score').textContent);
+    let computerScore = parseInt(document.getElementById('computer-score').textContent);
+    
+    return {
+        player: playerScore, 
+        computer: computerScore
+    };
 };
 
 /**
- * Find the current game progress
+ * Find the current game progress, return array of array
  */
 function getGameState() {
-    let 
+
 };
 
 /**
- * Find the current settings
+ * Find the current settings, return boolean
  */
 function getSettingsState() {
 
