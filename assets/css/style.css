@@ -115,6 +115,9 @@ section {
 
 #game-board td {
     border: 2px solid #5F7470; /* Xanadu */
+    width: 87px;
+    height: 72px;
+    font-size: xxx-large;
 }
 
 /* only keep inside borders */
