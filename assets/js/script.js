@@ -31,14 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
  function displayPlay() {
 
     let scoreState = getScoreState();
+   
+    let gameState = getGameState();
 
-    let gameState = [
-        ['x', 'o', 'o'],
-        ['o', 'x', 'o'],
-        ['o', 'o', 'x'],
-    ];
-    
-    let settingsState = true;
+    let settingsState = getSettingsState();
 
     let score = createScoreBoard(scoreState);
     let game = createGameBoard(gameState);
@@ -49,21 +45,22 @@ document.addEventListener('DOMContentLoaded', function() {
         ${game}
         ${settings}
     `;
-};
+
+}
 
 /**
  * Display instructions section
  */
 function displayInstructions() {
     document.getElementsByTagName('section')[0].innerHTML = '<p>Instructions</p>';
-};
+}
 
 /**
  * Display feedback section
  */
 function displayFeedback() {
     document.getElementsByTagName('section')[0].innerHTML = '<p>Feedback</p>';
-};
+}
 
 // functions used to create html
 
@@ -111,7 +108,7 @@ function createGameBoard(gameState) {
     `;
 
     return gameBoard;
-};
+}
 
 /** 
  * Creates the settings html
@@ -132,7 +129,7 @@ function createSettings (settingsState) {
         <button id="game-restart">Restart game</button>
     </div>
     `;
-};
+}
 
 // functions used to grab the current state from the DOM
 
@@ -142,28 +139,50 @@ function createSettings (settingsState) {
 function getScoreState() {
     let playerScore = 0;
     let computerScore = 0;
+
     if (document.getElementById('player-score')) {
         playerScore = parseInt(document.getElementById('player-score').textContent);
-    };
+    }
     if (document.getElementById('computer-score')) {
         computerScore = parseInt(document.getElementById('computer-score').textContent);
     }
+
     return {
         player: playerScore, 
         computer: computerScore
-    };
-};
+    }
+}
 
 /**
  * Find the current game progress, return array of array
  */
 function getGameState() {
+    let gameState = [['', '', ''], ['', '', ''], ['', '', '']];
+    
+    if (document.getElementById('game-board')) {
+        let rows = document.getElementsByTagName('tr');
 
-};
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                gameState[i][j] = rows[i].children[j].textContent;
+            }
+        }
+    }
+
+    return gameState;
+}
 
 /**
  * Find the current settings, return boolean
  */
 function getSettingsState() {
+    let settingsState = true;
 
-};
+    if (document.getElementById('turn-switch')) {
+        if (!(document.getElementById('turn-switch').children[0].children[0].attributes.checked)) {
+            settingsState = false;
+        } 
+    }
+
+    return settingsState;
+}
