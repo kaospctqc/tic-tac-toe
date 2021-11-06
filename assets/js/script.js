@@ -140,9 +140,14 @@ function createSettings (settingsState) {
  * Find the current score, return object
  */
 function getScoreState() {
-    let playerScore = parseInt(document.getElementById('player-score').textContent);
-    let computerScore = parseInt(document.getElementById('computer-score').textContent);
-    
+    let playerScore = 0;
+    let computerScore = 0;
+    if (document.getElementById('player-score')) {
+        playerScore = parseInt(document.getElementById('player-score').textContent);
+    };
+    if (document.getElementById('computer-score')) {
+        computerScore = parseInt(document.getElementById('computer-score').textContent);
+    }
     return {
         player: playerScore, 
         computer: computerScore
