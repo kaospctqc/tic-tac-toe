@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     }
 
-    // displayPlay();
+    displayPlay();
 });
 
 // Display functions used by main navigation
