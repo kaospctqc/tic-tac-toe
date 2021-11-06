@@ -1,5 +1,8 @@
 // Let DOM finish before funning any JavaScript
 
+/**
+ * Main navigation for the Single Page App thingy
+ */
 document.addEventListener('DOMContentLoaded', function() {
     let menuItems = document.getElementsByClassName('menu-item');
 
@@ -20,8 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // displayPlay();
 });
 
+// Display functions used by main navigation
+
 /**
- * Main navigation for the Single Page App thingy
+ * Display game section
  */
  function displayPlay() {
 
@@ -44,14 +49,25 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(createGameBoard(gameState));
 };
 
+/**
+ * Display instructions section
+ */
 function displayInstructions() {
     document.getElementsByTagName('section')[0].innerHTML = '<p>Instructions</p>';
 };
 
+/**
+ * Display feedback section
+ */
 function displayFeedback() {
     document.getElementsByTagName('section')[0].innerHTML = '<p>Feedback</p>';
 };
 
+// functions used to create html
+
+/** 
+ * Creates the score html
+*/
 function createScoreBoard() {
     return  `
     <div id="score-board">
@@ -67,6 +83,9 @@ function createScoreBoard() {
     `;
 }
 
+/** 
+ * Creates the game html
+*/
 function createGameBoard(gameState) {
     let gameBoard = `
     <div id="game-board">
@@ -92,6 +111,9 @@ function createGameBoard(gameState) {
     return gameBoard;
 };
 
+/** 
+ * Creates the settings html
+*/
 function createSettings () {
     return `
     <div id="settings">
@@ -109,14 +131,25 @@ function createSettings () {
     `;
 };
 
+// functions used to grab the current state from the DOM
+
+/**
+ * Find the current score
+ */
 function getScoreState() {
 
 };
 
+/**
+ * Find the current game progress
+ */
 function getGameState() {
     let 
 };
 
+/**
+ * Find the current settings
+ */
 function getSettingsState() {
 
 };
