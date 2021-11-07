@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let menuItem of menuItems) {
         menuItem.addEventListener('click', function() {
             if (this.textContent === "Play") {
-                displayPlay(scoreState, gameState, settingsState);
+                displayPlay();
             } else if (this.textContent === "Instructions") {
                 displayInstructions();
             } else if (this.textContent === "Feedback") {
@@ -20,19 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     }
 
-    // initial values
-    let scoreState = {
-        player: 0, 
-        computer: 0
-    };
-    let gameState = [
-        ['', '', ''], 
-        ['', '', ''], 
-        ['', '', '']
-    ];
-    let settingsState = true;
-
-    displayPlay(scoreState, gameState, settingsState);
+    displayPlay();
 });
 
 // Display functions used by main navigation
@@ -40,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /**
  * Display game section
  */
- function displayPlay(scoreState, gameState, settingsState) {
+ function displayPlay() {
     
     if (!scoreState) {
         var scoreState = {
@@ -48,8 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             computer: 0
         };
     };
-    let score = createScoreBoard(scoreState);
-
+    
     if (!gameState) {
         var gameState = [
             ['', '', ''], 
@@ -57,11 +44,13 @@ document.addEventListener('DOMContentLoaded', function() {
             ['', '', '']
         ];
     };
-    let game = createGameBoard(gameState);
-
+    
     if (!settingsState) {
         var settingsState = true;
     };
+    
+    let score = createScoreBoard(scoreState);
+    let game = createGameBoard(gameState);
     let settings = createSettings(settingsState);
     
     document.getElementsByTagName('section')[0].innerHTML = `
