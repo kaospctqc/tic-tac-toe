@@ -220,7 +220,8 @@ function getSettingsState() {
 }
 
 /**
- * Game logic
+ * Function to mark starting a new round 
+ * in the same game
  */
 function startGame() {
     let settingsState = getSettingsState();
@@ -235,6 +236,10 @@ function startGame() {
     decideTurn(startPlayer);
 }
 
+/**
+ * Find all the cells that are currently 
+ * not occupied and available
+ */
 function getAvailableMoves() {
     let cells = document.getElementsByTagName('td');
     let moves = [];
@@ -246,6 +251,10 @@ function getAvailableMoves() {
     return moves;
 }
 
+/**
+ * Decide wether to run the human turn 
+ * or the computer turn
+ */
 function decideTurn(startPlayer = '', lastPlayer = '') {
     let player = '';
 
@@ -270,6 +279,10 @@ function decideTurn(startPlayer = '', lastPlayer = '') {
     }
 }
 
+/**
+ * Run the human turn and grab the
+ * players click
+ */
 function humanTurn() {
     let cells = document.getElementsByTagName('td');
 
@@ -282,6 +295,11 @@ function humanTurn() {
     }
 }
 
+/**
+ * Add the players mark to the board and
+ * remove the location from the available
+ * locations list
+ */
 function playerMove() {
     let cells = document.getElementsByTagName('td');
 
@@ -296,6 +314,11 @@ function playerMove() {
     endTurn('human');
 }
 
+/**
+ * Add the computers mark to the board and
+ * remove the location from the available
+ * locations list
+ */
 function computerTurn() {
     let availableMoves = getAvailableMoves();
 
@@ -315,6 +338,12 @@ function computerTurn() {
     endTurn('computer');
 }
 
+/**
+ * Mark the end of the turn and run checks
+ * to see if anyone won, if not, run the
+ * next turn
+ * @param {string} player - contains either 'human' or 'computer'
+ */
 function endTurn(player) {
     let availableMoves = getAvailableMoves();
     console.log(availableMoves);
@@ -334,6 +363,11 @@ function endTurn(player) {
     }
 }
 
+/**
+ * Verify if anyone won at the end of last turn
+ * @param {*} currentState game board at the end of last turn
+ * @returns used for truthy or falsey
+ */
 function checkWinner(currentState) {
     if (
         currentState[0][0] === currentState[1][1] && 
@@ -364,6 +398,12 @@ function checkWinner(currentState) {
     return '';
 }
 
+/**
+ * Assign win to player or computer and reset the game
+ * board while keeping score to allow for a new round
+ * to begin and start new round
+ * @param {*} player 
+ */
 function doWin(player) {
     console.log(player, 'won !!');
     if (player === 'human') {
@@ -376,6 +416,10 @@ function doWin(player) {
     startGame();
 }
 
+/**
+ * Empty game board cells and add the missing 
+ * location attribute to those cells
+ */
 function resetGameBoard() {
     let cells = document.getElementsByTagName('td');
     let moves = [];
