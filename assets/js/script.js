@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             computer: 0
         };
     };
-    let score = getScoreState(scoreState);
+    let score = createScoreBoard(scoreState);
 
     if (!gameState) {
         var gameState = [
@@ -300,6 +300,7 @@ function computerTurn() {
     let randomMove = availableMoves[Math.floor(Math.random() * availableMoves.length)];
     let m = randomMove.charAt(0);
     let n = randomMove.charAt(2);
+    // let n = randomMove.charAt(randomMove.length - 1);
 
     let currentGameState = getGameState();
     let currentSettingsState = getSettingsState();
