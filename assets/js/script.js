@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (this.textContent === "Play") {
                 displayPlay();
-                console.log(this.classList);
                 this.classList.add('live');
             } else if (this.textContent === "Instructions") {
                 displayInstructions();
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 alert('No ideea what that was');
             }
-        })
+        });
     }
 
     displayPlay();
@@ -45,7 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
             player: 0, 
             computer: 0
         };
-    };
+    } else {
+        scoreState = getScoreState();
+    }
     
     let gameState;
     if (!gameState) {
@@ -54,12 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
             ['', '', ''], 
             ['', '', '']
         ];
-    };
+    }
     
     let settingsState;
     if (!settingsState) {
         settingsState = true;
-    };
+    }
     
     let score = createScoreBoard(scoreState);
     let game = createGameBoard(gameState);
@@ -307,7 +308,7 @@ function computerTurn() {
     let currentSettingsState = getSettingsState();
     if (currentGameState) {
         let rows = document.getElementsByTagName('tr');
-        rows[m].children[n].textContent = currentSettingsState ? "O":"X";;
+        rows[m].children[n].textContent = currentSettingsState ? "O":"X";
         rows[m].children[n].removeAttribute('location');
     }
 
@@ -315,7 +316,7 @@ function computerTurn() {
 }
 
 function endTurn(player) {
-    let availableMoves = getAvailableMoves()
+    let availableMoves = getAvailableMoves();
     console.log(availableMoves);
 
     let currentState = getGameState();
@@ -365,5 +366,27 @@ function checkWinner(currentState) {
 
 function doWin(player) {
     console.log(player, 'won !!');
+    if (player === 'human') {
+        document.getElementById('player-score').textContent++;
+    } else if (player === 'computer') {
+        document.getElementById('computer-score').textContent++;
+    }
     alert('Congratulations ' + player + ' you have won!!!');
+    resetGameBoard();
+    startGame();
+}
+
+function resetGameBoard() {
+    let cells = document.getElementsByTagName('td');
+    let moves = [];
+    for (let cell of cells) {
+        if (!cell.attributes.location) {
+            let m = cell.parentElement.rowIndex;
+            let n = cell.cellIndex;
+            let name = 'location';
+            let value = `${m}-${n}`;
+            cell.setAttribute(name, value);
+            cell.textContent = '';
+        }                
+    }
 }
