@@ -8,12 +8,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     for (let menuItem of menuItems) {
         menuItem.addEventListener('click', function() {
+            let menuItems = document.getElementsByClassName('menu-item');
+            for (menuItem of menuItems) {
+                menuItem.classList.remove('live');
+            }
+
             if (this.textContent === "Play") {
                 displayPlay();
+                console.log(this.classList);
+                this.classList.add('live');
             } else if (this.textContent === "Instructions") {
                 displayInstructions();
+                this.classList.add('live');
             } else if (this.textContent === "Feedback") {
                 displayFeedback();
+                this.classList.add('live');
             } else {
                 alert('No ideea what that was');
             }
@@ -30,23 +39,26 @@ document.addEventListener('DOMContentLoaded', function() {
  */
  function displayPlay() {
     
+    let scoreState;
     if (!scoreState) {
-        var scoreState = {
+        scoreState = {
             player: 0, 
             computer: 0
         };
     };
     
+    let gameState;
     if (!gameState) {
-        var gameState = [
+        gameState = [
             ['', '', ''], 
             ['', '', ''], 
             ['', '', '']
         ];
     };
     
+    let settingsState;
     if (!settingsState) {
-        var settingsState = true;
+        settingsState = true;
     };
     
     let score = createScoreBoard(scoreState);
