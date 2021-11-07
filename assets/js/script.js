@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let menuItem of menuItems) {
         menuItem.addEventListener('click', function() {
             if (this.textContent === "Play") {
-                displayPlay();
+                displayPlay(scoreState, gameState, settingsState);
             } else if (this.textContent === "Instructions") {
                 displayInstructions();
             } else if (this.textContent === "Feedback") {
@@ -20,65 +20,58 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     }
 
-    displayPlay();
+    // initial values
+    let scoreState = {
+        player: 0, 
+        computer: 0
+    };
+    let gameState = [
+        ['', '', ''], 
+        ['', '', ''], 
+        ['', '', '']
+    ];
+    let settingsState = true;
+
+    displayPlay(scoreState, gameState, settingsState);
 });
-
-
-// // pageload
-// function gameLoop(newState) {
-//     let playerScore = 0
-//     let gameState = newState || [0,0,0]
-
-//     const cells = renderBoard(gameState)
-//     const clickHandler = handlePlayerInput(gameState)
-//     cells.forEach(e => e.addEventListener('click', (e) => {clickHandler(e, gameState)} ))
-// }
-
-// function renderBoard(state) {
-//     const cell = document.createElement('td')
-//     // insert into DOM
-//     return cell
-// }
-
-//  function clickHandler(e) {
-//     const { row, line } = e.target.dataset
-//     const newState = updateGameState(row, line, gameState)
-//     const playerWon = checkScore(newState)
-//     if playerWon {
-//         doWin()
-//     } else {
-//         const getComputerMove(newState)
-//         init(newState)
-//     }
-    
-// }
-
-
 
 // Display functions used by main navigation
 
 /**
  * Display game section
  */
- function displayPlay() {
+ function displayPlay(scoreState, gameState, settingsState) {
+    
+    if (!scoreState) {
+        var scoreState = {
+            player: 0, 
+            computer: 0
+        };
+    };
+    let score = getScoreState(scoreState);
 
-    let scoreState = getScoreState();
-    let gameState = getGameState();
-    let settingsState = getSettingsState();
-
-    // let settingsState = false;
-
-    let score = createScoreBoard(scoreState);
+    if (!gameState) {
+        var gameState = [
+            ['', '', ''], 
+            ['', '', ''], 
+            ['', '', '']
+        ];
+    };
     let game = createGameBoard(gameState);
-    let settings = createSettings(settingsState);
 
+    if (!settingsState) {
+        var settingsState = true;
+    };
+    let settings = createSettings(settingsState);
+    
     document.getElementsByTagName('section')[0].innerHTML = `
         ${score}
         ${game}
         ${settings}
     `;
 
-    startGame(scoreState, gameState, settingsState);
+    startGame();
+    document.getElementById('game-restart').addEventListener('click', displayPlay);
 }
 
 /**
@@ -183,7 +176,7 @@ function getScoreState() {
     return {
         player: playerScore, 
         computer: computerScore
-    }
+    };
 }
 
 /**
@@ -227,7 +220,9 @@ function getSettingsState() {
 /**
  * Game logic
  */
-function startGame(scoreState, gameState, settingsState) {
+function startGame() {
+    let settingsState = getSettingsState();
+
     let startPlayer = '';
     if (settingsState) {
         startPlayer = 'human';
@@ -277,7 +272,11 @@ function humanTurn() {
     let cells = document.getElementsByTagName('td');
 
     for (let cell of cells) {
-        cell.addEventListener('click', playerMove);
+        if (cell.attributes.location) {
+            cell.addEventListener('click', playerMove);
+        } else {
+            console.log('not listening on: ', cell.parentElement.rowIndex, '-', cell.cellIndex);
+        }
     }
 }
 
