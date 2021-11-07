@@ -23,6 +23,38 @@ document.addEventListener('DOMContentLoaded', function() {
     displayPlay();
 });
 
+
+// // pageload
+// function gameLoop(newState) {
+//     let playerScore = 0
+//     let gameState = newState || [0,0,0]
+
+//     const cells = renderBoard(gameState)
+//     const clickHandler = handlePlayerInput(gameState)
+//     cells.forEach(e => e.addEventListener('click', (e) => {clickHandler(e, gameState)} ))
+// }
+
+// function renderBoard(state) {
+//     const cell = document.createElement('td')
+//     // insert into DOM
+//     return cell
+// }
+
+//  function clickHandler(e) {
+//     const { row, line } = e.target.dataset
+//     const newState = updateGameState(row, line, gameState)
+//     const playerWon = checkScore(newState)
+//     if playerWon {
+//         doWin()
+//     } else {
+//         const getComputerMove(newState)
+//         init(newState)
+//     }
+    
+// }
+
+
+
 // Display functions used by main navigation
 
 /**
@@ -31,10 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
  function displayPlay() {
 
     let scoreState = getScoreState();
-   
     let gameState = getGameState();
-
     let settingsState = getSettingsState();
+
     // let settingsState = false;
 
     let score = createScoreBoard(scoreState);
@@ -47,17 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ${settings}
     `;
 
-    // let cells = document.getElementsByTagName('td');
-    
-    // for (let cell of cells) {
-    //     cell.addEventListener('click', function() {
-    //         runGame(settingsState);
-    //     });
-    // }
-
-
-    runGame(scoreState, gameState, settingsState);
-    // humanTurn(scoreState, gameState, settingsState);
+    startGame(scoreState, gameState, settingsState);
 }
 
 /**
@@ -107,7 +128,7 @@ function createGameBoard(gameState) {
         gameBoard += `           <tr>`;
         for (var j = 0; j < 3; j++) {
             gameBoard += `
-                    <td data-line=${i} data-row="${j}">${gameState[i][j].toUpperCase()}</td>`;
+                    <td location="${i}-${j}">${gameState[i][j].toUpperCase()}</td>`;
         }
         gameBoard += `
                 </tr>
@@ -206,47 +227,96 @@ function getSettingsState() {
 /**
  * Game logic
  */
-function runGame(scoreState, gameState, settingsState) {
-    let cells = document.getElementsByTagName('td');
+function startGame(scoreState, gameState, settingsState) {
+    let startPlayer = '';
+    if (settingsState) {
+        startPlayer = 'human';
+    } else {
+        startPlayer = 'computer';
+    }
 
+    decideTurn(startPlayer);
+}
+
+function getAvailableMoves() {
+    let cells = document.getElementsByTagName('td');
+    let moves = [];
     for (let cell of cells) {
-        // cell.addEventListener('click', humanTurn);
-        cell.addEventListener('click', function(event) {
-            if (settingsState) {
-                humanTurn(event, settingsState); 
-            } else {
-                computerTurn(settingsState);
-            }
-        });
+        if (cell.attributes.location) {
+            moves.push(cell.attributes.location.value);
+        }
+    }
+    return moves;
+}
+
+function decideTurn(startPlayer = '', lastPlayer = '') {
+    let player = '';
+
+    if (startPlayer) {
+        player = (startPlayer === 'human') ? 'human':'computer';
+    } else {
+        // console.log('No start player');
+    }
+
+    if (lastPlayer) {
+        player = (lastPlayer === 'human') ? 'computer':'human';
+    } else {
+        // console.log('No last player');
+    }
+
+    if (player === 'human') {
+        humanTurn();
+    } else if (player === 'computer') {
+        computerTurn();
+    } else {
+        console.log('undefined player');
     }
 }
 
-function humanTurn(event, settingsState) {
-    // console.log(this.parentElement.rowIndex, this.cellIndex, this.textContent);
-    if (!event.target.textContent) {
-        event.target.textContent = settingsState ? "X":"O";
-    } 
-    // console.log(event.target);
+function humanTurn() {
+    let cells = document.getElementsByTagName('td');
+
+    for (let cell of cells) {
+        cell.addEventListener('click', playerMove);
+    }
+}
+
+function playerMove() {
+    let cells = document.getElementsByTagName('td');
+
+    for (let cell of cells) {
+        cell.removeEventListener('click', playerMove);
+    }
+    let settingsState = getSettingsState();
+
+    this.textContent = settingsState ? "X":"O";
+    this.removeAttribute('location');
+
     endTurn('human');
 }
 
-function computerTurn(settingsState) {
-    console.log(settingsState);
-    let m = Math.floor(Math.random() * 3);
-    let n = Math.floor(Math.random() * 3);
+function computerTurn() {
+    let availableMoves = getAvailableMoves();
+
+    let randomMove = availableMoves[Math.floor(Math.random() * availableMoves.length)];
+    let m = randomMove.charAt(0);
+    let n = randomMove.charAt(2);
+
     let currentGameState = getGameState();
     let currentSettingsState = getSettingsState();
     if (currentGameState) {
         let rows = document.getElementsByTagName('tr');
         rows[m].children[n].textContent = currentSettingsState ? "O":"X";;
+        rows[m].children[n].removeAttribute('location');
     }
 
-    console.log(getGameState());
-    
     endTurn('computer');
 }
 
 function endTurn(player) {
+    let availableMoves = getAvailableMoves()
+    console.log(availableMoves);
+
     let currentState = getGameState();
     let winner = checkWinner(currentState);
     let nextPlayer = (player === "human") ? "computer" : "human";
@@ -255,9 +325,7 @@ function endTurn(player) {
         doWin(player);
     } else {
         if (nextPlayer === "human") {
-            
-            // humanTurn();
-
+            humanTurn();
         } else if (nextPlayer === "computer") {
             computerTurn();
         }
@@ -296,4 +364,5 @@ function checkWinner(currentState) {
 
 function doWin(player) {
     console.log(player, 'won !!');
+    alert('Congratulations ' + player + ' you have won!!!');
 }
