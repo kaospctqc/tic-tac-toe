@@ -95,7 +95,7 @@ A Name, Email and TextArea form that the user can use to send feedback to the ma
 ![contrast](assets/images/tic-tac-toe-feedback.png)
 
 ### footer
-Container for social media links that can be used by to user to find information about the author, other projects by the author, code institute.
+Container for social media links that can be used by to user to find information about the author, other projects by the author, code institute. This also highlights when the user hovers over the link to indicate that it is a clickable element.
 
 ![contrast](assets/images/tic-tac-toe-footer.png)
 
