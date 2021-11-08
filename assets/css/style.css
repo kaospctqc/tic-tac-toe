@@ -7,8 +7,8 @@
 }
 
 body {
-    color: #889696; /* Xanadu */
-    background: #EBEDE9; /* Platinum */
+    color: #3F4A44; /* Xanadu */
+    background: #E8E8E8; /* Platinum */
     font-family: 'Zen Kurenaido', sans-serif;
 }
 
@@ -33,12 +33,12 @@ header {
 
 #main-menu > ul > li {
     display: inline-block;
-    border: 2px solid #5F7470; /* Xanadu */
+    border: 2px solid #3F4A44; /* Xanadu */
     border-right: 0;
 }
 
 #main-menu > ul > li:last-child {
-    border: 2px solid #5F7470; /* Xanadu */
+    border: 2px solid #3F4A44; /* Xanadu */
 }
 
 #main-menu > ul > li > a {
@@ -51,12 +51,12 @@ header {
 }
 
 a.menu-item {
-    color: #889696; /* Spanish Gray */
+    color: #3F4A44; /* Spanish Gray */
     text-decoration: none;
 }
 
 a.menu-item:visited {
-    color: #889696; /* Spanish Gray */
+    color: #3F4A44; /* Spanish Gray */
 }
 
 a.live {
@@ -64,8 +64,8 @@ a.live {
 }
 
 a.menu-item:hover {
-    color: #EBEDE9; /* Platinum */
-    background: #5F7470; /* Xanadu */
+    color: #E8E8E8; /* Platinum */
+    background: #3F4A44; /* Xanadu */
 }
 
 /* main section */
@@ -91,7 +91,7 @@ section {
 }
 
 .score {
-    border: 2px solid #5F7470; /* Xanadu */
+    border: 2px solid #3F4A44; /* Xanadu */
     padding: 0 10px;
 }
 
@@ -115,7 +115,7 @@ section {
 }
 
 #game-board td {
-    border: 2px solid #5F7470; /* Xanadu */
+    border: 2px solid #3F4A44; /* Xanadu */
     width: 87px;
     height: 72px;
     font-size: xxx-large;
@@ -150,18 +150,18 @@ section {
 
 #game-restart {
     margin-left: 15px;
-    border: 2px solid #5F7470; /* Xanadu */
+    border: 2px solid #3F4A44; /* Xanadu */
     font-weight: bold;
     padding: 6px 10px;
     font-family: 'Zen Kurenaido', sans-serif;
     font-size: 14px;
-    color: #889696; /* Xanadu */
-    background: #EBEDE9; /* Platinum */
+    color: #3F4A44; /* Xanadu */
+    background: #E8E8E8; /* Platinum */
 }
 
 #game-restart:hover {
-    color: #EBEDE9; /* Platinum */
-    background: #5F7470; /* Xanadu */
+    color: #E8E8E8; /* Platinum */
+    background: #3F4A44; /* Xanadu */
 }
 
 /* toggle switch */
@@ -208,11 +208,11 @@ transition: .4s;
 }
 
 input:checked + .slider {
-background-color: #5F7470; /* Xanadu */
+background-color: #3F4A44; /* Xanadu */
 }
 
 input:focus + .slider {
-box-shadow: 0 0 1px #5F7470; /* Xanadu */
+box-shadow: 0 0 1px #3F4A44; /* Xanadu */
 }
 
 input:checked + .slider:before {
@@ -247,7 +247,7 @@ border-radius: 50%;
 
 #instructions p {
     font-weight: bold; 
-    color: #5F7470;
+    color: #3F4A44;
 }
 
 /* Feedback */
@@ -262,7 +262,7 @@ border-radius: 50%;
 
 #feedback-section label  {
     font-weight: bold; 
-    color: #5F7470;
+    color: #3F4A44;
 }
 
 #feedback-section textarea {
@@ -273,16 +273,16 @@ border-radius: 50%;
 #submit-form {
     margin-top: 10px;
     padding: 6px 10px;
-    border: 2px solid #5F7470;
+    border: 2px solid #3F4A44;
     font-family: 'Zen Kurenaido', sans-serif;
     font-size: 14px;
-    color: #5F7470;
-    background: #EBEDE9;
+    color: #3F4A44;
+    background: #E8E8E8;
 }
 
 #submit-form:hover {
-    color: #EBEDE9; /* Platinum */
-    background: #5F7470; /* Xanadu */
+    color: #E8E8E8; /* Platinum */
+    background: #3F4A44; /* Xanadu */
 }
 
 /* footer */
@@ -294,7 +294,7 @@ footer {
 
 footer > ul > li {
     display: inline-block;
-    border-right: 1px solid #5F7470;
+    border-right: 1px solid #3F4A44;
 }
 
 footer > ul > li:last-child {
@@ -302,15 +302,15 @@ footer > ul > li:last-child {
 }
 
 footer > ul > li > a {
-    color: #889696; /* Spanish Gray */
+    color: #3F4A44; /* Spanish Gray */
     text-decoration: none;
     display: block;
     padding: 0 6px;
 }
 
 footer > ul > li > a:hover {
-    color: #EBEDE9; /* Platinum */
-    background: #5F7470; /* Xanadu */
+    color: #E8E8E8; /* Platinum */
+    background: #3F4A44; /* Xanadu */
 }
 
 /* The Modal (background) */
