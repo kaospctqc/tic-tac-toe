@@ -376,6 +376,10 @@ function endTurn(player) {
 
     if (winner) {
         doWin(player);
+    } else if (!availableMoves.length) {
+        showSplashScreen("You've reached a draw!!");
+        resetGameBoard();
+        startGame();
     } else {
         if (nextPlayer === "human") {
             humanTurn();
