@@ -7,7 +7,7 @@ We are using HTML5, CSS3 and JavaScript to create a fun to play game.
 
 [Live website](https://kaospctqc.github.io/tic-tac-toe/).
 
-ToDo: add website screenshot thingy from [am i responsive](http://ami.responsivedesign.is/)
+![website preview](assets/images/tic-tac-toe-responsive.webp)
 
 ## Table of Contents
 
