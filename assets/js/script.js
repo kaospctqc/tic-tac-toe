@@ -105,7 +105,7 @@ function displayFeedback() {
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email"><br>
             <label for="feedback-input">Feedback:</label><br>
-            <textarea name="feedback-input" placeholder="feedback" rows="8" cols="25"></textarea><br>
+            <textarea name="feedback-input" rows="8" cols="25"></textarea><br>
             <input type="submit" value="Submit" id="submit-form">
         </form>
     </div>
@@ -429,11 +429,16 @@ function checkWinner(currentState) {
 function doWin(player) {
     console.log(player, 'won !!');
     if (player === 'human') {
+        let message = 'Congratulations, you have won!!!';
+        showSplashScreen(message);
         document.getElementById('player-score').textContent++;
+        
     } else if (player === 'computer') {
+        let message = 'Try again, you have lost.';
+        showSplashScreen(message);
         document.getElementById('computer-score').textContent++;
     }
-    alert('Congratulations ' + player + ' you have won!!!');
+
     resetGameBoard();
     startGame();
 }
@@ -455,4 +460,22 @@ function resetGameBoard() {
             cell.textContent = '';
         }                
     }
+}
+
+/**
+ * Show slpash screen
+ */
+function showSplashScreen(message) {
+    let modal = document.getElementById("myModal");
+    modal.style.display = "block";
+
+    // let window = document.getElementsByClassName("close")[0];
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    let messageElement = document.getElementById('modal-message');
+    messageElement.textContent = message;
 }
