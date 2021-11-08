@@ -20,6 +20,7 @@ We are using HTML5, CSS3 and JavaScript to create a fun to play game.
 
 <a name="ux"></a>
 ## 1. UX
+[Go to the top](#table-of-contents)
 
 This implementation of the tic tac toe game is meant to:
 - allow users to play the game
@@ -57,6 +58,7 @@ The next tool used was [webaim.org](https://webaim.org/resources/contrastchecker
 
 <a name="features"></a>
 ## 2. Features
+[Go to the top](#table-of-contents)
 
 The app features 3 distinct areas: 
 - the header that hosts the main title of the app and the main navigation menu
@@ -99,13 +101,33 @@ Container for social media links that can be used by to user to find information
 
 <a name="technologies-used"></a>
 ## 3. Technologies Used
+[Go to the top](#table-of-contents)
+
+- [Balsamiq](https://balsamiq.com/) wireframes software
+- [coolors.co](https://coolors.co/) color schemas generator
+- [webaim.org](https://webaim.org/resources/contrastchecker/) constrast checker
+- [HTML5](https://en.wikipedia.org/wiki/HTML5) structure and some content for the app
+- [CSS3](https://en.wikipedia.org/wiki/CSS) style and some behaviour
+- [amIResponsive](http://ami.responsivedesign.is/) generate screenshots for various screen sizes
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) dynamic content behaviour
+- [Google Fonts](https://fonts.google.com/) originally selected Roboto Mono and Zen Kurenaido but only the second one was actually used.
+- [Firefox browser](https://www.mozilla.org/) used to preview, inspect and test 
+- [Github](https://github.com/) code repository and versioning
+- [Gitpod](https://www.gitpod.io/) developer environment
+- [W3C HTML Validation](https://validator.w3.org/) check HTML code
+- [W3C CSS Validation](https://jigsaw.w3.org/css-validator/) check CSS code
+- [JavaScript validation](https://jshint.com/) check JavaScript code
 
 <a name="testing"></a>
 ## 4. Testing
+[Go to the top](#table-of-contents)
 
 <a name="deployment"></a>
 ## 5. Deployment
+[Go to the top](#table-of-contents)
 
 <a name="credits"></a>
 ## 6. Credits
+[Go to the top](#table-of-contents)
+
 rules: https://www.exploratorium.edu/brain_explorer/tictactoe.html
