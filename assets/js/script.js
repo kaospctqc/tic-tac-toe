@@ -453,7 +453,6 @@ function doWin(player) {
  */
 function resetGameBoard() {
     let cells = document.getElementsByTagName('td');
-    let moves = [];
     for (let cell of cells) {
         if (!cell.attributes.location) {
             let m = cell.parentElement.rowIndex;
