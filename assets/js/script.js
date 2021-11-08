@@ -80,7 +80,17 @@ document.addEventListener('DOMContentLoaded', function() {
  * Display instructions section
  */
 function displayInstructions() {
-    document.getElementsByTagName('section')[0].innerHTML = '<p>Instructions</p>';
+    // document.getElementsByTagName('section')[0].innerHTML = '<p>Instructions</p>';
+    document.getElementsByTagName('section')[0].innerHTML = `
+    <div id='instructions'>
+        <ul>
+            <li><p>This game is played on a grid that's 3 squares by 3 squares.</p></li>
+            <li><p>You are X, the computer is O. Players take turns putting their marks in empty squares.</p></li>
+            <li><p>The first player to get 3 of their marks in a row (up, down, across, or diagonally) is the winner.</p></li>
+            <li><p>The game is over either when all 9 squares are full or when a winner has been found.</p></li>
+        </ul>
+    </div>
+    `;
 }
 
 /**

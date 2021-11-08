@@ -75,6 +75,7 @@ section {
     height: 330px;
 }
 
+/* Game */
 /* score-board */
 
 #player, #computer, .label, .score {
@@ -228,6 +229,26 @@ border-radius: 34px;
 .slider.round:before {
 border-radius: 50%;
 } 
+
+/* Instructions */
+#instructions {
+    width: 230px; 
+    text-align: center; 
+    display: inline-block;
+}
+
+#instructions li {
+    margin:20px 0;
+}
+
+#instructions li:first-child {
+    margin:0 0 20px 0;
+}
+
+#instructions p {
+    font-weight: bold; 
+    color: #5F7470;
+}
 
 /* footer */
 

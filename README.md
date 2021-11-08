@@ -29,3 +29,4 @@ ToDo: add website screenshot thingy from [am i responsive](http://ami.responsive
 ## Deployment
 
 ## Credits
+rules: https://www.exploratorium.edu/brain_explorer/tictactoe.html
