@@ -97,7 +97,19 @@ function displayInstructions() {
  * Display feedback section
  */
 function displayFeedback() {
-    document.getElementsByTagName('section')[0].innerHTML = '<p>Feedback</p>';
+    document.getElementsByTagName('section')[0].innerHTML = `
+    <div id='feedback-section'>
+        <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <label for="feedback-input">Feedback:</label><br>
+            <textarea name="feedback-input" placeholder="feedback" rows="8" cols="25"></textarea><br>
+            <input type="submit" value="Submit" id="submit-form">
+        </form>
+    </div>
+    `;
 }
 
 // functions used to create html

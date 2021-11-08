@@ -250,6 +250,41 @@ border-radius: 50%;
     color: #5F7470;
 }
 
+/* Feedback */
+#feedback-section {
+    width: 230px;
+    display: inline-block;
+}
+
+#feedback-section form  {
+    text-align: left;
+}
+
+#feedback-section label  {
+    font-weight: bold; 
+    color: #5F7470;
+}
+
+#feedback-section textarea {
+    margin-top: 10px;
+    resize: none;
+}
+
+#submit-form {
+    margin-top: 10px;
+    padding: 6px 10px;
+    border: 2px solid #5F7470;
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-size: 14px;
+    color: #5F7470;
+    background: #EBEDE9;
+}
+
+#submit-form:hover {
+    color: #EBEDE9; /* Platinum */
+    background: #5F7470; /* Xanadu */
+}
+
 /* footer */
 
 footer {
