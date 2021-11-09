@@ -8,11 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     for (let menuItem of menuItems) {
         menuItem.addEventListener('click', function() {
+
+            // Remove the active page highlight from the menu
             let menuItems = document.getElementsByClassName('menu-item');
             for (menuItem of menuItems) {
                 menuItem.classList.remove('live');
             }
 
+            // Show clicked page and assign highlight in the menu
             if (this.textContent === "Play") {
                 displayPlay();
                 this.classList.add('live');
@@ -28,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Default page for the first load before user clicks anything
     displayPlay();
 });
 
@@ -38,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
  function displayPlay() {
     
+    // Unless you find the state, initialize with empty values
     let scoreState;
     if (!scoreState) {
         scoreState = {
@@ -62,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
         settingsState = true;
     }
     
+    // Create html blocks and compose the html page
     let score = createScoreBoard(scoreState);
     let game = createGameBoard(gameState);
     let settings = createSettings(settingsState);
@@ -72,7 +78,10 @@ document.addEventListener('DOMContentLoaded', function() {
         ${settings}
     `;
 
+    // Start the game here
     startGame();
+
+    // Enable the Restart game button
     document.getElementById('game-restart').addEventListener('click', displayPlay);
 }
 
@@ -301,6 +310,7 @@ function decideTurn(startPlayer = '', lastPlayer = '') {
 function humanTurn() {
     let cells = document.getElementsByTagName('td');
 
+    // Add a listener for a click on if the cell is available
     for (let cell of cells) {
         if (cell.attributes.location) {
             cell.addEventListener('click', playerMove);
@@ -316,14 +326,17 @@ function humanTurn() {
 function playerMove() {
     let cells = document.getElementsByTagName('td');
 
+    // Remove listener to prevent accidental clicks
     for (let cell of cells) {
         cell.removeEventListener('click', playerMove);
     }
     let settingsState = getSettingsState();
 
+    // Add the player mark to the clicked location
     this.textContent = settingsState ? "X":"O";
     this.removeAttribute('location');
 
+    // end the human turn
     endTurn('human');
 }
 
@@ -333,13 +346,13 @@ function playerMove() {
  * locations list
  */
 function computerTurn() {
+    // Pick a random move from the available move list
     let availableMoves = getAvailableMoves();
-
     let randomMove = availableMoves[Math.floor(Math.random() * availableMoves.length)];
     let m = randomMove.charAt(0);
     let n = randomMove.charAt(2);
-    // let n = randomMove.charAt(randomMove.length - 1);
-
+ 
+    // If the game is started, add the mark of the computer
     let currentGameState = getGameState();
     let currentSettingsState = getSettingsState();
     if (currentGameState) {
@@ -348,6 +361,7 @@ function computerTurn() {
         rows[m].children[n].removeAttribute('location');
     }
 
+    // end the computer turn
     endTurn('computer');
 }
 
@@ -389,11 +403,13 @@ function checkWinner(currentState) {
         currentState[0][0] === currentState[1][1] && 
         currentState[1][1] === currentState[2][2] &&
         currentState[1][1] !== '') {
-        return 'winner';
+        // check the first diagonal
+        return 'winner'; 
     } else if (
         currentState[2][0] === currentState[1][1] && 
         currentState[1][1] === currentState[0][2] &&
         currentState[1][1] !== '') {
+        // check the second diagonal
         return 'winner';
     }
 
@@ -402,11 +418,13 @@ function checkWinner(currentState) {
             currentState[0][i] === currentState[1][i] && 
             currentState[0][i] === currentState[2][i] &&
             currentState[0][i] !== '') {
+            // check for vertical lines
             return 'winner';
         } else if (
             currentState[i][0] === currentState[i][1] && 
             currentState[i][0] === currentState[i][2] &&
             currentState[i][0] !== '') {
+            // check for horizontal lines
             return 'winner';
         }
     }
@@ -461,7 +479,6 @@ function showSplashScreen(message) {
     let modal = document.getElementById("myModal");
     modal.style.display = "block";
 
-    // let window = document.getElementsByClassName("close")[0];
     window.addEventListener('click', function(event) {
         if (event.target === modal) {
             modal.style.display = "none";
