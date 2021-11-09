@@ -50,11 +50,11 @@ Before implementing any html, css or javascript, we used [Balsamiq](https://bals
 The color scheme influences the users state and the design choice was to try to achieve something calming, relaxing.
 When searching for the color scheme, we used [coolors.co](https://coolors.co/ebede9-d2d4c8-b8bdb5-889696-5f7470) as a starting point.
 
-![scheme](assets/images/tic-tac-toe-colorScheme.webp)
+![scheme](assets/images/tic-tac-toe-color-scheme.webp)
 
 The next tool used was [webaim.org](https://webaim.org/resources/contrastchecker/) that helped achieve a good level of contrast while maintaining the overall scheme that we wanted to use.
 
-![contrast](assets/images/tic-tac-toe-contrastChecker.webp)
+![contrast](assets/images/tic-tac-toe-contrast-checker.webp)
 
 <a name="features"></a>
 ## 2. Features
@@ -82,7 +82,7 @@ The settings section where the user can select who should start the round (the u
 Currently, the computer moves are random.
 The Restart game button that allows the user to start over.
 
-![contrast](assets/images/tic-tac-toe-theGame.png)
+![contrast](assets/images/tic-tac-toe-the-game.png)
 
 ### instructions
 A simple, unordered list of instructions meant to tell the user the basic rules of tic-tac-toe.
@@ -142,14 +142,14 @@ Testing focused on:
 
 The results contained no errors but did contain a few warnings that were invastigated and deemed non issues.
 - HTML Validation:
-![contrast](assets/images/tic-tac-toe-htmlChecker.png)
+![contrast](assets/images/tic-tac-toe-html-checker.png)
 
 - CSS Validation:
-![contrast](assets/images/tic-tac-toe-cssChecker.png)
-![contrast](assets/images/tic-tac-toe-cssCheckerWarnings.png)
+![contrast](assets/images/tic-tac-toe-css-checker.png)
+![contrast](assets/images/tic-tac-toe-css-checker-warnings.png)
 
 - JavaScript Validation:
-![contrast](assets/images/tic-tac-toe-javascriptChecker.png)
+![contrast](assets/images/tic-tac-toe-javascript-checker.png)
 
 - Lighthouse plugin:
 ![contrast](assets/images/tic-tac-toe-lighthouse.png)
