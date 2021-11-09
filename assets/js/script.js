@@ -109,11 +109,11 @@ function displayFeedback() {
     <div id='feedback-section'>
         <form method="POST" action="https://formdump.codeinstitute.net/">
             <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"><br>
+            <input type="text" id="name" name="name" required><br>
             <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br>
+            <input type="email" id="email" name="email" required><br>
             <label for="feedback-input">Feedback:</label><br>
-            <textarea name="feedback-input" rows="8" cols="25"></textarea><br>
+            <textarea name="feedback-input" rows="8" cols="25" required></textarea><br>
             <input type="submit" value="Submit" id="submit-form">
         </form>
     </div>
