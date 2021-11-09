@@ -117,17 +117,60 @@ Container for social media links that can be used by to user to find information
 - [W3C HTML Validation](https://validator.w3.org/) check HTML code
 - [W3C CSS Validation](https://jigsaw.w3.org/css-validator/) check CSS code
 - [JavaScript validation](https://jshint.com/) check JavaScript code
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
 <a name="testing"></a>
 ## 4. Testing
 [Go to the top](#table-of-contents)
 
+### 4.1 Manual testing
+
+Have tested using 
+- Firefox web browser Responsive Design Mode and used the following presets:
+    - Iphone 5/SE iOS 10.3.1 Resolution: 320 x 568
+    - iPad Resolution: 810 x 1080
+- Mobile phone Samsung Galaxy Note 10 
+
+Testing focused on:
+- consistent positioning of all the elements throughout the different resolutions
+- menu functionality accross different devices
+- menu look and feel accross different devices
+- overall readability of text sections and the smaller elements
+- any other potential bugs
+
+### 4.2 Testing using validation tools
+
+The results contained no errors but did contain a few warnings that were invastigated and deemed non issues.
+- HTML Validation:
+![contrast](assets/images/tic-tac-toe-htmlChecker.png)
+
+- CSS Validation:
+![contrast](assets/images/tic-tac-toe-cssChecker.png)
+![contrast](assets/images/tic-tac-toe-cssCheckerWarnings.png)
+
+- JavaScript Validation:
+![contrast](assets/images/tic-tac-toe-javascriptChecker.png)
+
+- Lighthouse plugin:
+![contrast](assets/images/tic-tac-toe-lighthouse.png)
+
 <a name="deployment"></a>
 ## 5. Deployment
 [Go to the top](#table-of-contents)
+
+The website was deployed using [GitHub](https://github.com/).
+- Login to GitHub
+- Navigate to your respoitory containg the website you wish to publish.
+- Click on "Settings" from the horizontal menu
+- Select "Pages" from the vertical menu
+- Select the desired branch (usually "master" or "main")
+- After clicking "Save" you should see a refresh and the link for accessing the website is now available.
 
 <a name="credits"></a>
 ## 6. Credits
 [Go to the top](#table-of-contents)
 
-rules: https://www.exploratorium.edu/brain_explorer/tictactoe.html
+There are no images used in the application. Design was created by me.
+Elements that were used from other sources were:
+- rules: https://www.exploratorium.edu/brain_explorer/tictactoe.html
+- modal: https://www.w3schools.com/howto/howto_css_modals.asp
