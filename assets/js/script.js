@@ -170,8 +170,8 @@ function createSettings (settingsState) {
         <div id="turn-select">
             <div id="turn-label" class="label">Go first ?</div>
             <div id="turn-switch">
-                <label class="switch">
-                    <input type="checkbox" ${checked}>
+                <label for="toggle" class="switch">
+                    <input id="toggle" type="checkbox" ${checked}>
                     <span class="slider round"></span>
                 </label>
             </div>
