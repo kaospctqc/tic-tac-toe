@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
  * Display instructions section
  */
 function displayInstructions() {
-    // document.getElementsByTagName('section')[0].innerHTML = '<p>Instructions</p>';
     document.getElementsByTagName('section')[0].innerHTML = `
     <div id='instructions'>
         <ul>
@@ -282,23 +281,17 @@ function decideTurn(startPlayer = '', lastPlayer = '') {
 
     if (startPlayer) {
         player = (startPlayer === 'human') ? 'human':'computer';
-    } else {
-        // console.log('No start player');
-    }
+    } 
 
     if (lastPlayer) {
         player = (lastPlayer === 'human') ? 'computer':'human';
-    } else {
-        // console.log('No last player');
-    }
+    } 
 
     if (player === 'human') {
         humanTurn();
     } else if (player === 'computer') {
         computerTurn();
-    } else {
-        console.log('undefined player');
-    }
+    } 
 }
 
 /**
@@ -311,9 +304,7 @@ function humanTurn() {
     for (let cell of cells) {
         if (cell.attributes.location) {
             cell.addEventListener('click', playerMove);
-        } else {
-            console.log('not listening on: ', cell.parentElement.rowIndex, '-', cell.cellIndex);
-        }
+        } 
     }
 }
 
@@ -368,7 +359,6 @@ function computerTurn() {
  */
 function endTurn(player) {
     let availableMoves = getAvailableMoves();
-    console.log(availableMoves);
 
     let currentState = getGameState();
     let winner = checkWinner(currentState);
@@ -431,7 +421,6 @@ function checkWinner(currentState) {
  * @param {*} player 
  */
 function doWin(player) {
-    console.log(player, 'won !!');
     if (player === 'human') {
         let message = 'Congratulations, you have won!!!';
         showSplashScreen(message);
