@@ -98,7 +98,7 @@ function displayInstructions() {
 function displayFeedback() {
     document.getElementsByTagName('section')[0].innerHTML = `
     <div id='feedback-section'>
-        <form>
+        <form method="POST" action="https://formdump.codeinstitute.net/">
             <label for="name">Name:</label><br>
             <input type="text" id="name" name="name"><br>
             <label for="email">Email:</label><br>
