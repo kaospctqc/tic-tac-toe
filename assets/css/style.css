@@ -272,6 +272,10 @@ input:checked + .slider:before {
     resize: none;
 }
 
+#feedback-section input, #feedback-section textarea {
+    padding: 5px 10px;
+}
+
 #submit-form {
     margin-top: 10px;
     padding: 6px 10px;
