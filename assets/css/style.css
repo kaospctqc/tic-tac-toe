@@ -164,6 +164,13 @@ section {
     background: #3F4A44; /* Xanadu */
 }
 
+/* turn-select checkbox */
+.toggle {
+    /* color: #3F4A44; */
+    /* change "blue" browser chrome to yellow */
+    filter: invert(100%) hue-rotate(18deg) brightness(1.7);
+}
+
 /* toggle switch */
 /* https://www.w3schools.com/howto/howto_css_switch.asp */
 

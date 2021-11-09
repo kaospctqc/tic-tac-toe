@@ -81,6 +81,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start the game here
     startGame();
 
+    // Enable the Go first ? toggle switch
+    let toggle = document.getElementById('toggle');
+    toggle.addEventListener('change', function() {
+        if (toggle.checked) {
+            console.log("toggle is on");
+        } else {
+            console.log("toggle is not on");
+            decideTurn('computer');
+        }
+    });
+
     // Enable the Restart game button
     document.getElementById('game-restart').addEventListener('click', displayPlay);
 }
@@ -173,16 +184,26 @@ function createGameBoard(gameState) {
 */
 function createSettings (settingsState) {
     let checked = settingsState ? 'checked': '';
+    // return `
+    // <div id="settings">
+    //     <div id="turn-select">
+    //         <div id="turn-label" class="label">Go first ?</div>
+    //         <div id="turn-switch">
+    //             <label for="toggle" class="switch">Go first
+    //                 <input id="toggle" name="toggle" type="checkbox" ${checked}>
+    //                 <span class="slider round"></span>
+    //             </label>
+    //         </div>
+    //     </div>
+    //     <button id="game-restart">Restart game</button>
+    // </div>
+    // `;
+
     return `
     <div id="settings">
         <div id="turn-select">
-            <div id="turn-label" class="label">Go first ?</div>
-            <div id="turn-switch">
-                <label for="toggle" class="switch">Go first
-                    <input id="toggle" name="toggle" type="checkbox" ${checked}>
-                    <span class="slider round"></span>
-                </label>
-            </div>
+            <label for="toggle"><h2 style="display: inline;">Go first ?</h2></label>
+            <input type="checkbox" id="toggle" checked style="height: 25px; width: 25px; vertical-align: text-bottom;">
         </div>
         <button id="game-restart">Restart game</button>
     </div>
