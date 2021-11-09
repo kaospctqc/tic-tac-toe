@@ -121,11 +121,11 @@ function createScoreBoard(scoreState) {
     return  `
     <div id="score-board">
         <div id="player">
-            <div id="player-label" class="label">Player</div>
+            <h2 id="player-label" class="label">Player</h2>
             <span id="player-score" class="score">${scoreState.player}</span>
         </div>
         <div id="computer">
-            <div id="computer-label" class="label">Computer</div>
+            <h2 id="computer-label" class="label">Computer</h2>
             <span id="computer-score" class="score">${scoreState.computer}</span>
         </div>
     </div>
