@@ -146,22 +146,22 @@ section {
 
 #turn-select {
     margin-right: 10px;
+    display: none;
 }
 
 #game-restart {
-    margin-left: 15px;
-    border: 2px solid #3F4A44; /* Xanadu */
+    border: 2px solid #3F4A44;
     font-weight: bold;
     padding: 6px 10px;
     font-family: 'Zen Kurenaido', sans-serif;
     font-size: 14px;
-    color: #3F4A44; /* Xanadu */
-    background: #E8E8E8; /* Platinum */
+    color: #3F4A44;
+    background: #E8E8E8;
 }
 
 #game-restart:hover {
-    color: #E8E8E8; /* Platinum */
-    background: #3F4A44; /* Xanadu */
+    color: #E8E8E8;
+    background: #3F4A44;
 }
 
 /* toggle switch */
