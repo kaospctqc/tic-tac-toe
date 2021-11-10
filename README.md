@@ -31,7 +31,7 @@ There are some social media links provided in the footer to allow users to find 
 
 ### 1.1 Wireframe
 
-Before implementing any html, css or javascript, we used [Balsamiq](https://balsamiq.com/) to create wireframes that describe the initial design of the application. This step help a lot when implementing the html, css and javascript.
+Before implementing any html, css or javascript, we used [Balsamiq](https://balsamiq.com/) to create wireframes that describe the initial design of the application. This step helped a lot when implementing the html, css and javascript.
 
 #### Home / Play page
 ![Home Mobile](assets/images/home-mobile.webp)
@@ -41,7 +41,7 @@ Before implementing any html, css or javascript, we used [Balsamiq](https://bals
 ![Instructions Mobile](assets/images/instructions-mobile.webp)
 ![Instructions Desktop](assets/images/instructions-desktop.webp)
 
-### #Feedback page
+### Feedback page
 ![Feedback Mobile](assets/images/feedback-mobile.webp)
 ![Feedback Desktop](assets/images/feedback-desktop.webp)
 
@@ -62,7 +62,7 @@ The next tool used was [webaim.org](https://webaim.org/resources/contrastchecker
 
 The app features 3 distinct areas: 
 - the header that hosts the main title of the app and the main navigation menu
-- the main section that will show one of the 3 pages depending of where the user navigated
+- the main section that will show one of the 3 pages depending on where the user navigated
     - the game (Play), 
     - how to play (Instructions), 
     - contact form (Feedback).
@@ -105,12 +105,12 @@ Container for social media links that can be used by to user to find information
 
 - [Balsamiq](https://balsamiq.com/) wireframes software
 - [coolors.co](https://coolors.co/) color schemas generator
-- [webaim.org](https://webaim.org/resources/contrastchecker/) constrast checker
+- [webaim.org](https://webaim.org/resources/contrastchecker/) contrast checker
 - [HTML5](https://en.wikipedia.org/wiki/HTML5) structure and some content for the app
 - [CSS3](https://en.wikipedia.org/wiki/CSS) style and some behaviour
 - [amIResponsive](http://ami.responsivedesign.is/) generate screenshots for various screen sizes
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript) dynamic content behaviour
-- [Google Fonts](https://fonts.google.com/) originally selected Roboto Mono and Zen Kurenaido but only the second one was actually used.
+- [Google Fonts](https://fonts.google.com/) originally selected Roboto Mono and Zen Kurenaido but only the second one was used.
 - [Firefox browser](https://www.mozilla.org/) used to preview, inspect and test 
 - [Github](https://github.com/) code repository and versioning
 - [Gitpod](https://www.gitpod.io/) developer environment
@@ -133,14 +133,14 @@ Have tested using
 
 Testing focused on:
 - consistent positioning of all the elements throughout the different resolutions
-- menu functionality accross different devices
-- menu look and feel accross different devices
+- menu functionality across different devices
+- menu look and feel across different devices
 - overall readability of text sections and the smaller elements
 - any other potential bugs
 
 ### 4.2 Testing using validation tools
 
-The results contained no errors but did contain a few warnings that were invastigated and deemed non issues.
+The results contained no errors but did contain a few warnings that were investigated and deemed non issues.
 - HTML Validation:
 ![contrast](assets/images/tic-tac-toe-html-checker.png)
 
@@ -160,7 +160,7 @@ The results contained no errors but did contain a few warnings that were invasti
 
 The website was deployed using [GitHub](https://github.com/).
 - Login to GitHub
-- Navigate to your respoitory containg the website you wish to publish.
+- Navigate to your repository containing the website you wish to publish.
 - Click on "Settings" from the horizontal menu
 - Select "Pages" from the vertical menu
 - Select the desired branch (usually "master" or "main")
