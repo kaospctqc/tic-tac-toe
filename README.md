@@ -34,6 +34,7 @@ There are some social media links provided in the footer to allow users to find 
 Before implementing any html, css or javascript, we used [Balsamiq](https://balsamiq.com/) to create wireframes that describe the initial design of the application. This step helped a lot when implementing the html, css and javascript.
 
 #### Home / Play page
+Note: The "Go first" section has been moved to future feature.
 ![Home Mobile](assets/images/home-mobile.webp)
 ![Home Desktop](assets/images/home-desktop.webp)
 
@@ -78,7 +79,7 @@ The menu highlights the current location and also signals when mouse over to ind
 All elements will reset once the Restart game button has been pressed or the user navigated to a different location or on page refresh.
 The game section starts with showing the current score. 
 The game board where the user may add marks during a round of the game.
-The settings section where the user can select who should start the round (the user or the computer). 
+~~The settings section where the user can select who should start the round (the user or the computer).~~ The Go first setting has been moved to future feature.
 Currently, the computer moves are random.
 The Restart game button that allows the user to start over.
 
@@ -98,6 +99,11 @@ A Name, Email and TextArea form that the user can use to send feedback to the ma
 Container for social media links that can be used by to user to find information about the author, other projects by the author, code institute. This also highlights when the user hovers over the link to indicate that it is a clickable element.
 
 ![contrast](assets/images/tic-tac-toe-footer.png)
+
+### Future Features
+- Add the Go first setting to allow the user to select which player moves at the beginning of the game
+- Add better logic for the computer moves to increase the level of difficulty, a good example can be found [here](https://codepen.io/Bosa100/pen/XRZppv)
+- Add background elements to improve the way it looks on bigger screen sizes.
 
 <a name="technologies-used"></a>
 ## 3. Technologies Used
