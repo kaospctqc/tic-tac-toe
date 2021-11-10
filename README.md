@@ -140,7 +140,7 @@ Testing focused on:
 
 ### 4.2 Testing using validation tools
 
-The results contained no errors but did contain a few warnings that were investigated and deemed non issues.
+The results contained no errors but did contain a few warnings that were investigated and deemed non issues. The warning complains about not having h2-h6 elements in the section but these are not necessary because this is the game area.
 - HTML Validation:
 ![contrast](assets/images/tic-tac-toe-html-checker.png)
 
