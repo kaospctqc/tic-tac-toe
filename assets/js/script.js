@@ -114,7 +114,7 @@ function displayFeedback() {
             <input type="email" id="email" name="email" required><br>
             <label for="feedback-input">Feedback:</label><br>
             <textarea name="feedback-input" rows="8" cols="25" required></textarea><br>
-            <input type="submit" value="Submit" id="submit-form">
+            <input type="submit" value="Submit" id="submit-form" aria-label="Submit">
         </form>
     </div>
     `;
